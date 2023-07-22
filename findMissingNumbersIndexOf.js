@@ -1,6 +1,6 @@
 import { generateRandomNumbers } from "./index.js";
 
-export default function findMissingNumbersIndexOf(nums, before) {
+export default function findMissingNumbersIndexOf(nums) {
   let step = 1;
   const answer = [];
   step++;
@@ -20,22 +20,7 @@ export default function findMissingNumbersIndexOf(nums, before) {
     }
   }
 
-  const data = {
-    n: nums.length,
-    step: step,
-    up: step / before.step + "倍",
-  };
+  step++; //return answer; のステップをここでカウント
 
-  console.log(data);
-
-  if (nums.length < before.max) {
-    findMissingNumbersIndexOf(
-      generateRandomNumbers(nums.length * before.multiple),
-      {
-        ...before,
-        ...data,
-      }
-    );
-  }
   return answer;
 }
